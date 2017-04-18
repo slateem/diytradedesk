@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block body_class %}login{% endblock %}
+
+{% block content %}
+
+<div class="login_wrapper">
+  <div id="register" class="form">
+    <section class="login_content">
+      <form method="POST" action="{% url 'account_signup' %}">
+        <h1>Create Account</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <div>
+          <button class="btn btn-default submit">Submit</button>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="separator">
+          <p class="change_link">Already a member ?
+            <a href="{{ login_url }}" class="to_register"> Log in </a>
+          </p>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+
+{% endblock %}

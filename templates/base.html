@@ -1,0 +1,55 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>{% block title %}DIY Trade Desk{% endblock %}</title>
+
+    {% block meta %}
+        {% include "fragments/head_meta.html" %}
+    {% endblock %}
+
+    {% block extras %}
+        {% include "fragments/head_extras.html" %}
+    {% endblock %}
+
+    {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+
+    {% block extra_meta %}{% endblock %}
+    {% block extra_style %}{% endblock %}
+    {% block extra_head %}{% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        <div class="container body">
+            <div class="main_container">
+                {% block left %}
+                    {% include "fragments/left.html" %}
+                {% endblock %}
+
+                <div class="top_nav">
+                {% block navbar %}
+                    {% include "fragments/navbar.html" %}
+                {% endblock %}
+                </div>
+
+                <div class="right_col" role="main">
+                {% block right %}
+                {% endblock %}
+                </div>
+
+                <footer>
+                {% block footer %}
+                    {% include "fragments/footer.html" %}
+                {% endblock %}
+                </footer>
+            </div>
+        </div>
+
+        {% block script %}
+            {% include "fragments/body_script.html" %}
+        {% endblock %}
+        {% block extra_script %}{% endblock %}
+    </body>
+</html>

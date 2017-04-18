@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body_class %}nav-md{% endblock %}
+
+{% block extra_style %}
+<link href="{% static 'gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block right %}
+<div class="">
+	<div class="page-title">
+		<div class="title_left">
+			<h3>New Trade
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+			<div class="x_panel">
+				<div class="x_content">
+					<form method="post" class="form-horizontal form-label-left">{% csrf_token %}
+						{% for field in form %}
+					    	<div class="form-group">
+					    		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="{{ field.name }}">{{ field.label }}</label>
+					    		<div class="col-md-6 col-sm-6 col-xs-12">
+					    			{{ field }}
+					    		</div>
+					    	</div>
+					    {% endfor %}
+					    <input type="submit" class="btn btn-success btn-md" value="Save Change" />
+					    <a href="{% url 'dashboard' %}" class="btn btn-default btn-md">Dashboard</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extra_script %}
+<script src="{% static 'gentelella/vendors/moment/min/moment.min.js' %}"></script>
+<script src="{% static 'gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+{% endblock %}
