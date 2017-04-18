@@ -172,3 +172,8 @@ ACCOUNT_FORMS = {
     'login': 'userdata.forms.CustomLoginForm',
     'signup': 'userdata.forms.CustomSignupForm'
 }
+
+try:
+    from settings_local import *
+except:
+    pass
