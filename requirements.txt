@@ -1,4 +1,4 @@
 django==1.11
 mysql-python==1.2.5
-django-aullauth==0.31.0
+django-allauth==0.31.0
 django-bower==5.2.0
