@@ -21,7 +21,9 @@ def trade_create(request):
 	if request.method == 'POST':
 		form = TradeForm(request.POST)
 		if form.is_valid():
-			form.save()
+			f = form.save(commit=False)
+			f.user = request.user
+			f.save()
 			return redirect('dashboard')
 	return render(request, 'diy_dashboard/trade/create.html', {
 		'form': form,
