@@ -2,8 +2,11 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Trade(models.Model):
+	user = models.ForeignKey(User)
 	symbol = models.CharField("Symbol", max_length=20, blank=True)
 	entry_date = models.DateField("Entry Date")
 	strategy = models.CharField("Strategy", max_length=50, blank=True)

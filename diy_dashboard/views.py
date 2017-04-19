@@ -9,7 +9,7 @@ from .forms import TradeForm
 
 @login_required
 def index(request):
-	trades = Trade.objects.all()
+	trades = Trade.objects.filter(user=request.user)
 	return render(request, 'diy_dashboard/index.html', {
 		'trades': trades,
 		'user': request.user,
